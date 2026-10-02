@@ -19,6 +19,7 @@ Format d'une tâche :
 
 ## PR
 Gabarit dans `.github/pull_request_template.md`. Titre = sujet du commit principal. Corps : exigences couvertes, ce qui n'est pas couvert et pourquoi, tests, captures, risques, décisions demandées.
+La personne dispose de 30 minutes par jour pour le suivi et la revue (décision T-001) : vise des PR qui se relisent dans ce temps.
 
 ## ADR
 Toute décision structurante (dépendance majeure, schéma de données, protocole de synchro, choix ML) → `docs/adr/NNNN-titre.md` d'après `docs/adr/template.md`, dans la même PR.
