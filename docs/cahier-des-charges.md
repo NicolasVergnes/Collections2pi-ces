@@ -6,7 +6,7 @@ Sep 30, 2026 · @Nicolas
 
 Deux est une application mobile (iOS et Android, web ensuite) qui permet à un collectionneur de pièces de 2 € d'inventorier sa collection, d'identifier une pièce par photo et de mobiliser ses proches pour trouver ce qui lui manque. Le différenciateur est le mode Aide : un proche non collectionneur scanne la pièce qu'il a en main et sait en deux secondes si elle manque à un ami.
 
-Nom de code provisoire : Deux. Le nom définitif est une question ouverte (section 12).
+Nom affiché en V1 : Collection2pièces. Nom de code du projet : Deux. Le nom définitif sera choisi après la V1 (section 12).
 
 ### Principes produit
 
@@ -22,8 +22,8 @@ Nom de code provisoire : Deux. Le nom définitif est une question ouverte (secti
 
 | Version | Contenu | Explicitement hors périmètre |
 | --- | --- | --- |
-| V1 (MVP) | Catalogue complet des 2 € (commémoratives et circulation), collection avec quantités et périmètre personnel, reconnaissance par photo, comptes optionnels avec synchronisation, amis, mode Aide, suggestions d'échange en lecture seule, FR/EN/DE | Caméra en direct, flux d'échange suivi, valeurs, géolocalisation |
-| V2 | Caméra en direct multi-pièces, détection automatique de l'atelier et du millésime, flux d'échange suivi avec mise à jour des quantités, import Numista, valeurs indicatives, IT/ES/NL/PT, version web de consultation, Premium en achat unique | Géolocalisation, second type de collection |
+| V1 (MVP) | Catalogue complet des 2 € (commémoratives et faces nationales de circulation), collection avec quantités et périmètre personnel, reconnaissance par photo, comptes optionnels avec synchronisation, amis avec options de partage, mode Aide, suggestions d'échange en lecture seule, FR/EN/DE, gratuite, lancement dans toute l'Europe | Millésimes de circulation, caméra en direct, flux d'échange suivi, valeurs, Premium, géolocalisation |
+| V2 | Caméra en direct multi-pièces, millésimes de circulation, détection automatique de l'atelier et du millésime, flux d'échange suivi avec mise à jour des quantités, import Numista, valeurs indicatives, IT/ES/NL/PT, version web de consultation, Premium en achat unique | Géolocalisation, second type de collection |
 | V3 | Collectionneurs à proximité (opt-in, position floutée), clubs et bourses, réputation d'échange, second type de collection branché comme plugin | Place de marché, paiement intégré, cotation en temps réel |
 
 ### Objectifs mesurables six mois après la sortie de V1
@@ -48,17 +48,18 @@ Quatre profils utilisent l'application, et deux d'entre eux (le collectionneur e
 ### Parcours clés
 
 1. **Onboarding collectionneur sans compte.** Installation → choix de la langue → question « tu collectionnes ou tu aides quelqu'un ? » → périmètre de collection (commémoratives seules ou aussi circulation, ateliers allemands oui/non) → collection locale prête. Le compte n'est proposé qu'au premier besoin réel : inviter quelqu'un ou synchroniser un second appareil.
-2. **Scan et ajout.** Photo de la face nationale → trois candidats classés → confirmation d'un geste → millésime et atelier pré-remplis ou à choisir → quantité mise à jour → retour au scan.
+2. **Scan et ajout.** Photo de la face nationale → trois candidats classés → confirmation d'un geste → atelier pré-rempli ou à choisir (pièces allemandes ; millésime en V2) → quantité mise à jour → retour au scan.
 3. **Inviter un aide.** Camille génère un lien ou un QR (7 jours, révocable) → Lucas l'ouvre → l'application s'installe ou s'ouvre → un compte anonyme lié à l'appareil est créé sans formulaire → Lucas voit un seul écran : « Tu aides Camille ». La personne qui aide peut aider plusieurs collectionneurs.
 4. **L'aide trouve une pièce.** Lucas scanne → « Camille ne l'a pas, garde-la ! » → il appuie sur « Mise de côté » → Camille reçoit une notification → à la remise en main propre, Camille valide et sa quantité s'incrémente. Fonctionne hors ligne : les manques de Camille sont mis en cache sur le téléphone de Lucas.
-5. **Suggestion d'échange entre collectionneurs.** Camille et Théo sont amis. L'écran Amis montre « Théo a un doublon de Grèce 2023 qui te manque, tu as un doublon de Lettonie 2022 qui lui manque ». En V1 c'est informatif ; en V2 cela ouvre un échange suivi.
+5. **Suggestion d'échange entre collectionneurs.** Camille et Théo sont amis et partagent leurs manques et leurs doublons. L'écran Amis montre « Théo a un doublon de Grèce 2023 qui te manque, tu as un doublon de Lettonie 2022 qui lui manque ». En V1 c'est informatif ; en V2 cela ouvre un échange suivi.
 6. **Nouvelle émission.** Une pièce est annoncée par la BCE → l'équipe ajoute l'entrée au catalogue et une image de référence → validation automatique → publication d'une version de catalogue → les applications la téléchargent sans mise à jour du store → le modèle de reconnaissance l'intègre à la version suivante de son index.
 
 ### Règles de visibilité entre profils
 
 - Un aide voit uniquement la liste des manques des collectionneurs qu'il aide, jamais leur collection complète ni leurs autres amis.
 - Un collectionneur voit de son aide uniquement les mises de côté et un compteur « pièces scannées » (pas forcément pour lui, puisqu'il peut aider plusieurs personnes).
-- Deux collectionneurs amis voient mutuellement leurs manques et leurs doublons, pas les quantités exactes ni les notes. Il faut que ce soit des options de partage. Un choix général pour tous les amis par défaut, et si besoin un choix différent pour des amis en particuliers. - Voir les pièces qu'il manque - Voir la collection complète (pas le nombre d'exemplaire) - Voir la liste des pièces en doublons. Sur le profil d'amis, chacun voit les pièces qu'il pourrait échanger avec l'autre (qu'il a en double et pas l'autre).
+- Entre collectionneurs amis, chacun choisit ce qu'il partage (F4.12) : un réglage général pour tous ses amis et, si besoin, un réglage différent pour certains amis. Trois options : ses manques, sa collection complète (sans le nombre d'exemplaires), ses doublons. Par défaut, rien n'est partagé. Les quantités exactes et les notes ne sont jamais partagées. Ces options ne changent rien à ce que voit un aide (première règle).
+- Sur le profil d'un ami, chacun voit les pièces qu'il pourrait échanger avec l'autre : celles qu'il a en double et que l'autre n'a pas (F4.7), dans la limite de ce que l'autre partage.
 - Un aide qui commence à collectionner bascule en mode collectionneur sans perdre ses liens.
 
 ## 3. Exigences fonctionnelles
@@ -69,10 +70,10 @@ Chaque exigence porte un identifiant stable (F1.1, F4.3…) repris dans le backl
 
 | ID | Exigence | Version | Priorité |
 | --- | --- | --- | --- |
-| F1.1 | Toutes les 2 € commémoratives depuis 2004 et les 2 € de circulation des 25 émetteurs (21 pays de la zone euro dont la Bulgarie depuis 2026, Monaco, Saint-Marin, Vatican, Andorre), soit environ 700 dessins | V1 | M |
+| F1.1 | Toutes les 2 € commémoratives depuis 2004 et les faces nationales de circulation des 25 émetteurs (21 pays de la zone euro dont la Bulgarie depuis 2026, Monaco, Saint-Marin, Vatican, Andorre), une entrée par dessin sans distinction de millésime, soit environ 700 dessins | V1 | M |
 | F1.2 | Par pièce : image de la face nationale, pays, année, titre, thème, tirage, graveur, série, émission commune, ateliers (Allemagne : A, D, F, G, J), description courte | V1 | M |
 | F1.3 | Navigation par pays, par année, par série ; recherche texte ; filtres possédée / manquante / doublon | V1 | M |
-| F1.4 | Fiche pièce : image zoomable, infos, « qui parmi mes amis la possède / la cherche » | V1 | M |
+| F1.4 | Fiche pièce : image zoomable, infos, « qui parmi mes amis la possède / la cherche » selon ce qu'ils partagent (F4.12) | V1 | M |
 | F1.5 | Catalogue embarqué (instantané versionné) pour usage hors ligne et sans compte | V1 | M |
 | F1.6 | Mise à jour du catalogue sans passer par les stores (fichier versionné, signé, téléchargé au lancement) | V1 | M |
 | F1.7 | Catalogue traduit (titres, descriptions) en FR, EN, DE | V1 | S |
@@ -84,10 +85,10 @@ Chaque exigence porte un identifiant stable (F1.1, F4.3…) repris dans le backl
 | ID | Exigence | Version | Priorité |
 | --- | --- | --- | --- |
 | F2.1 | Ajouter ou retirer une pièce ; quantité de 0 à n ; incrément d'un geste | V1 | M |
-| F2.2 | Périmètre de collection : commémoratives seules ou aussi circulation ; distinction des ateliers allemands oui/non ; distinction des millésimes de circulation oui/non. Le périmètre définit ce qu'est un « manque » | V1 | M |
+| F2.2 | Périmètre de collection : commémoratives seules ou aussi faces nationales de circulation ; distinction des ateliers allemands oui/non (V1) ; distinction des millésimes de circulation oui/non (V2). Le périmètre définit ce qu'est un « manque » | V1 / V2 | M |
 | F2.3 | Doublons calculés : quantité − exemplaires à garder (1 par défaut, modifiable par pièce) | V1 | M |
 | F2.4 | Vue album : progression globale, par pays et par année ; listes Manques et Doublons | V1 | M |
-| F2.5 | Par pièce, facultatif : état, notes, date et lieu d'acquisition | V1 | S |
+| F2.5 | Par pièce, facultatif : état, notes, date et lieu d'acquisition, photo personnelle | V1 | S |
 | F2.6 | Stockage local d'abord ; synchronisation multi-appareils si compte | V1 | M |
 | F2.7 | Export CSV | V1 | S |
 | F2.8 | Import CSV et import Numista via son API (OAuth) | V2 | S |
@@ -99,7 +100,7 @@ Chaque exigence porte un identifiant stable (F1.1, F4.3…) repris dans le backl
 | --- | --- | --- | --- |
 | F3.1 | Photo (appareil ou galerie) de la face nationale → trois candidats classés avec score ; l'utilisateur confirme d'un geste | V1 | M |
 | F3.2 | Traitement intégralement sur l'appareil, hors ligne, sans compte | V1 | M |
-| F3.3 | Millésime et atelier : pré-remplis quand lisibles, sinon sélecteur rapide (V1) ; lecture automatique (V2) | V1 / V2 | M |
+| F3.3 | Atelier : pré-rempli quand lisible, sinon sélecteur rapide (V1). Millésime de circulation et lecture automatique (V2) | V1 / V2 | M |
 | F3.4 | Retours explicites : « ce n'est pas une 2 € », « photo floue », « face commune détectée, retourne la pièce », avec guidage visuel | V1 | M |
 | F3.5 | Correction manuelle toujours possible ; chaque correction alimente les métriques (sans image) | V1 | M |
 | F3.6 | Option d'envoyer la photo pour améliorer le modèle, opt-in explicite, révocable | V1 | S |
@@ -117,11 +118,12 @@ Chaque exigence porte un identifiant stable (F1.1, F4.3…) repris dans le backl
 | F4.4 | Un aide peut aider plusieurs collectionneurs ; la réponse du scan agrège (« Camille et Paul la cherchent ») | V1 | M |
 | F4.5 | Mise de côté → notification au collectionneur → validation à la remise → incrément de quantité ; annulation possible des deux côtés | V1 | M |
 | F4.6 | Les manques des amis sont mis en cache localement pour que le mode Aide fonctionne hors ligne | V1 | M |
-| F4.7 | Suggestions d'échange entre collectionneurs amis (doublon de l'un ↔ manque de l'autre), en lecture seule | V1 | S |
+| F4.7 | Suggestions d'échange entre collectionneurs amis (doublon de l'un ↔ manque de l'autre), en lecture seule, dans la limite de ce que chacun partage (F4.12) | V1 | S |
 | F4.8 | Flux d'échange suivi : proposition, acceptation, remise ou envoi, clôture, mise à jour automatique des quantités, notation | V2 | M |
 | F4.9 | Notifications push opt-in : mise de côté, nouvelle relation, échange | V1 | S |
 | F4.10 | Retirer un ami, bloquer, signaler | V1 | M |
 | F4.11 | Compteur et petites récompenses pour l'aide (« 12 pièces trouvées pour Camille ») | V1 | C |
+| F4.12 | Options de partage entre collectionneurs amis : un réglage général pour tous les amis, une exception possible par ami ; trois options cumulables : manques, collection complète (sans quantités), doublons ; rien n'est partagé par défaut | V1 | M |
 
 ### F5 — Comptes et accès sans compte
 
@@ -193,7 +195,7 @@ Le modèle sépare un noyau générique (collections, relations, échanges) d'un
 | item\_variants | Une déclinaison collectionnable d'un dessin | id, item\_type\_id, key (`default`, `A`, `D`…), label, attrs | Tous |
 | users | Profil minimal | id, handle, avatar\_url, locale, settings, is\_anonymous | Soi ; handle et avatar visibles des amis |
 | collections | Une collection d'un utilisateur pour un catalogue | id, user\_id, catalog\_id, scope (JSON : catégories, ateliers, millésimes) | Soi |
-| collection\_items | Une ligne de collection | id, collection\_id, variant\_id, quantity, keep\_quantity, condition, notes, acquired\_at, updated\_at, deleted\_at | Soi ; agrégé pour les amis |
+| collection\_items | Une ligne de collection | id, collection\_id, variant\_id, quantity, keep\_quantity, condition, notes, acquired\_at, updated\_at, deleted\_at | Soi ; agrégé pour les amis selon leurs options de partage (F4.12) |
 | relationships | Un lien entre deux utilisateurs | id, user\_a, user\_b, kind (`collector`, `helper`), status (`pending`, `accepted`, `blocked`), created\_at | Les deux parties |
 | invites | Un jeton d'invitation | token, inviter\_id, kind, expires\_at, max\_uses, uses | L'émetteur |
 | setasides | Une pièce mise de côté par un aide | id, helper\_id, collector\_id, variant\_id, status (`set_aside`, `delivered`, `cancelled`), created\_at | Les deux parties |
@@ -207,7 +209,7 @@ Le modèle sépare un noyau générique (collections, relations, échanges) d'un
 - Manques d'un utilisateur = variantes du catalogue filtrées par son périmètre − variantes possédées (quantité > 0).
 - Doublons = max(0, quantity − keep\_quantity), keep\_quantity = 1 par défaut.
 - Ce qu'un aide voit = union des manques des collectionneurs qu'il aide, exposée par une vue SQL `friend_wants` qui ne renvoie que des identifiants de variantes.
-- Suggestion d'échange entre A et B = doublons(A) ∩ manques(B) et doublons(B) ∩ manques(A).
+- Suggestion d'échange entre A et B = doublons(A) ∩ manques(B) et doublons(B) ∩ manques(A), limitée à ce que A et B partagent (F4.12).
 
 ### Base locale (SQLite sur l'appareil)
 
@@ -295,7 +297,7 @@ Cas d'usage du moteur, purs et testés : AddToCollection, SetScope, ComputeWants
 
 ### Sécurité
 
-- Une politique RLS par table ; les manques d'un ami ne sont lisibles que par la vue `friend_wants`, qui vérifie l'existence d'une relation acceptée.
+- Une politique RLS par table ; les manques d'un ami ne sont lisibles que par la vue `friend_wants`, qui vérifie l'existence d'une relation acceptée et, entre collectionneurs, les options de partage (F4.12).
 - Les invitations sont des jetons aléatoires de 128 bits, expirés à 7 jours, à usage limité et révocables ; l'acceptation passe par une Edge Function qui crée la relation côté serveur.
 - Les Edge Functions sont limitées en débit par utilisateur et par adresse IP.
 - Les releases de catalogue et de modèle sont signées ; l'application vérifie la signature et la version minimale avant d'installer.
@@ -320,7 +322,7 @@ La chaîne du haut s'exécute entièrement sur le téléphone ; la chaîne du ba
 
 ### Atelier et millésime
 
-V1 : sélecteur pré-rempli. Le pré-remplissage vient d'un second passage sur la zone de la lettre d'atelier (position connue pour chaque dessin allemand) avec un petit classifieur A, D, F, G, J. V2 : lecture automatique du millésime par OCR léger sur la zone de date, avec validation manuelle si la confiance est basse.
+V1 : sélecteur d'atelier pré-rempli. Le pré-remplissage vient d'un second passage sur la zone de la lettre d'atelier (position connue pour chaque dessin allemand) avec un petit classifieur A, D, F, G, J. V2 : lecture automatique du millésime par OCR léger sur la zone de date, avec validation manuelle si la confiance est basse.
 
 ### Données d'entraînement
 
@@ -400,7 +402,7 @@ Ce choix répond aux reproches faits aux applications existantes : abonnements p
 
 ## 10. Roadmap et jalons
 
-Cinq phases séparées par des portes : la suivante ne démarre pas tant que les critères de la porte ne sont pas atteints. Les durées sont des estimations pour un développement mené par Claude Code avec une personne en revue ; la date de démarrage est une question ouverte (section 12).
+Cinq phases séparées par des portes : la suivante ne démarre pas tant que les critères de la porte ne sont pas atteints. Les durées sont des estimations pour un développement mené par Claude Code avec une personne en revue ; démarrage le 2 octobre 2026 (section 12).
 
 &#91;embedded content: roadmap · 5 phases, 4 portes\]
 
@@ -413,7 +415,7 @@ La phase 0 livre l'outillage qui rend les suivantes autonomes ; V1 sort en bêta
 | 0 · Fondations | Monorepo, CI, design system de la direction choisie, catalogue v0 (commémoratives) validé par schéma, plugin démo, premier modèle entraîné sur les références, kit Claude Code installé et hooks actifs, ADR 0001 à 0005 |
 | 1 · V1 bêta | Collection avec quantités et périmètre, scan photo, comptes et synchronisation, invitations, amis, mode Aide, suggestions d'échange, FR/EN/DE, bêta TestFlight et Play interne avec 50 testeurs, jeu de test réel de 2 000 photos |
 | 2 · V1 stores | Corrections de la bêta, politique de confidentialité, fiches stores, suppression de compte, revue d'accessibilité, publication |
-| 3 · V2 | Caméra en direct, atelier et millésime automatiques, flux d'échange suivi, valeurs indicatives, import Numista, Premium, IT/ES/NL/PT, web de consultation, interface de curation |
+| 3 · V2 | Caméra en direct, millésimes de circulation, atelier et millésime automatiques, flux d'échange suivi, valeurs indicatives, import Numista, Premium, IT/ES/NL/PT, web de consultation, interface de curation |
 | 4 · V3 | Proximité avec contrôle d'âge, clubs et bourses, réputation, second type de collection choisi après étude |
 
 ## 11. Développement autonome par Claude Code
@@ -528,14 +530,14 @@ Les deux risques qui peuvent bloquer V1 sont les droits sur les images de réfé
 
 ### Questions ouvertes
 
-- [ ] Nom définitif de l'application et disponibilité du nom sur les stores et en nom de domaine : Collection2pièces pour la V1, on verra après pour le vrai.
-- [ ] Date de démarrage et disponibilité de la personne pour la revue des PR : Démarrer maintenant, 30 minutes de dispo par jour pour suivi.
+- [x] Nom : Collection2pièces pour la V1, décidé le 2 octobre 2026 ; nom définitif choisi après la V1 ; disponibilité sur les stores et en nom de domaine à vérifier avant soumission (T-040)
+- [x] Démarrage : dès le 2 octobre 2026 ; la personne consacre 30 minutes par jour au suivi et à la revue des PR
 - [x] Thème par défaut : Album, décidé le 30 septembre 2026 ; Musée et Terrain restent commutables dans les réglages (section 8)
-- [ ] Les pièces de circulation avec millésime font-elles partie du périmètre V1, ou seulement les commémoratives et les dessins nationaux ? Seulement commémoratives et dessins nat en V1.
-- [ ] Source des images de référence après vérification des droits : prends ceux de la BCE
-- [ ] Import Numista en V1 ou V2 selon les conditions d'accès à l'API : V2
-- [ ] Prix du Premium et pays de lancement (France seule, ou France, Allemagne, Belgique et Luxembourg dès V1) : gratuit V1, toute l'europe dès V1, langues FR/EN/DE V1
-- [ ] Comptes développeur Apple et Google : au nom de la personne ou d'une structure : au nom de la personne (compte pas encore fait)
+- [x] Périmètre V1 : commémoratives et faces nationales de circulation, décidé le 2 octobre 2026 ; les millésimes de circulation passent en V2 (F2.2, F3.3)
+- [x] Images de référence : celles de la BCE, décidé le 2 octobre 2026 ; les droits d'utilisation restent à vérifier (premier risque ci-dessus, T-042)
+- [x] Import Numista : V2, décidé le 2 octobre 2026 (F2.8)
+- [x] Prix et lancement : V1 gratuite, Premium en V2 (section 9, prix à fixer avec T-053) ; lancement dans toute l'Europe dès V1 ; langues FR/EN/DE en V1 ; décidé le 2 octobre 2026
+- [x] Comptes développeur Apple et Google : au nom de la personne, décidé le 2 octobre 2026 ; pas encore créés (nécessaires pour les builds iOS sur appareil et la bêta T-036)
 
 ## 13. Glossaire
 
