@@ -406,6 +406,13 @@ Cinq phases séparées par des portes : la suivante ne démarre pas tant que les
 
 &#91;embedded content: roadmap · 5 phases, 4 portes\]
 
+Critères des portes, repris du schéma de la roadmap (l'export Markdown ne contient pas le schéma) :
+
+- Porte 0, entre les fondations et la bêta V1 : plugin démo testé ; catalogue validé.
+- Porte 1, entre la bêta V1 et la V1 en stores : 50 testeurs ; top-1 ≥ 90 % sur le jeu de test réel.
+- Porte 2, entre la V1 en stores et la V2 : crash-free ≥ 99,5 % ; note moyenne ≥ 4,5.
+- Porte 3, entre la V2 et la V3 : 1 000 utilisateurs actifs ; rétention à 30 jours ≥ 20 %.
+
 La phase 0 livre l'outillage qui rend les suivantes autonomes ; V1 sort en bêta fermée avant les stores ; V2 et V3 n'ouvrent qu'après les critères d'usage réel.
 
 ### Livrables par phase
@@ -538,6 +545,11 @@ Les deux risques qui peuvent bloquer V1 sont les droits sur les images de réfé
 - [x] Import Numista : V2, décidé le 2 octobre 2026 (F2.8)
 - [x] Prix et lancement : V1 gratuite, Premium en V2 (section 9, prix à fixer avec T-053) ; lancement dans toute l'Europe dès V1 ; langues FR/EN/DE en V1 ; décidé le 2 octobre 2026
 - [x] Comptes développeur Apple et Google : au nom de la personne, décidé le 2 octobre 2026 ; pas encore créés (nécessaires pour les builds iOS sur appareil et la bêta T-036)
+- [ ] Périmètre par défaut d'un nouveau collectionneur : commémoratives seules (proposition du backlog, T-022) ?
+- [ ] Conflits de synchronisation : dernière écriture par élément (F5.4) ou par champ (section 6, Synchronisation) ?
+- [ ] Atelier : lecture proposée, en V1 un sélecteur pré-rempli que l'utilisateur confirme (F3.3, section 7), en V2 une détection automatique sans sélecteur (sections 1 et 10) ?
+- [ ] Modèle de données (section 5) : où stocker le compteur « pièces scannées » de l'aide (section 2) et les signalements (F4.10) ?
+- [ ] Images sous licence : seuil de 90 % des pièces avant la publication en stores (T-042) ?
 
 ## 13. Glossaire
 
