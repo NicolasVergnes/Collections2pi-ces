@@ -27,7 +27,7 @@ Source de vérité pour les versions ciblées par le projet. À re-vérifier à 
 | jq | 1.7+ | requis par les hooks. |
 
 ## GitHub Actions (runtime Node 24 obligatoire depuis juin 2026)
-`actions/checkout@v6`, `actions/setup-node@v6`, `pnpm/action-setup@v6` (ou `pnpm/setup@v1` qui installe pnpm et Node en une étape), `astral-sh/setup-uv@v10`, `actions/setup-python@v6`, `supabase/setup-cli@v1`, `expo/expo-github-action@v8` (version non re-vérifiée le 2026-09-30 : contrôler au premier run).
+`actions/checkout@v6`, `actions/setup-node@v6`, `pnpm/action-setup@v6` (ou `pnpm/setup@v1` qui installe pnpm et Node en une étape), `astral-sh/setup-uv@v7`, `actions/setup-python@v6`, `supabase/setup-cli@v1`, `expo/expo-github-action@v8`. Toutes vérifiées le 2026-10-02 ; `setup-uv@v10` n'existait pas, v7 est la dernière version majeure.
 
 ## Comment re-vérifier
 `pnpm outdated -r`, `npx expo install --check`, `uv lock --upgrade --dry-run`, et les pages de release d'Expo (expo.dev/changelog), TypeScript (devblogs.microsoft.com/typescript), Node (nodejs.org/en/about/previous-releases). Consigner la date en tête de ce fichier.
