@@ -1,0 +1,30 @@
+{
+  "id": "eur2:de:2024:mecklenburg-vorpommern",
+  "country": "DE",
+  "year": 2024,
+  "category": "commemorative",
+  "title": {
+    "fr": "Mecklembourg-Poméranie-Occidentale",
+    "en": "Mecklenburg-Western Pomerania",
+    "de": "Mecklenburg-Vorpommern"
+  },
+  "description": {
+    "fr": "Série des Länder : Königsstuhl, falaise de craie de l'île de Rügen.",
+    "en": "Bundesländer series: Königsstuhl, chalk cliff on the island of Rügen.",
+    "de": "Bundesländerserie: Königsstuhl, Kreidefelsen auf der Insel Rügen."
+  },
+  "series": "de-bundeslaender-2",
+  "mintage": null,
+  "designer": null,
+  "issueDate": null,
+  "variants": [
+    { "key": "A", "label": { "fr": "Atelier A (Berlin)", "en": "Mint A (Berlin)", "de": "Prägestätte A (Berlin)" }, "mintage": null },
+    { "key": "D", "label": { "fr": "Atelier D (Munich)", "en": "Mint D (Munich)", "de": "Prägestätte D (München)" }, "mintage": null },
+    { "key": "F", "label": { "fr": "Atelier F (Stuttgart)", "en": "Mint F (Stuttgart)", "de": "Prägestätte F (Stuttgart)" }, "mintage": null },
+    { "key": "G", "label": { "fr": "Atelier G (Karlsruhe)", "en": "Mint G (Karlsruhe)", "de": "Prägestätte G (Karlsruhe)" }, "mintage": null },
+    { "key": "J", "label": { "fr": "Atelier J (Hambourg)", "en": "Mint J (Hamburg)", "de": "Prägestätte J (Hamburg)" }, "mintage": null }
+  ],
+  "sources": ["https://www.ecb.europa.eu/euro/coins/comm/html/comm_2024.en.html"],
+  "numistaId": null,
+  "notes": "Tirage et graveur à confirmer sur la page BCE avant de remplacer les null."
+}

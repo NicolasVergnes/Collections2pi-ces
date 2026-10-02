@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://deux.app/schemas/coin.schema.json",
+  "title": "Pièce de 2 € (un dessin)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "country", "year", "category", "title", "variants", "sources"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^eur2:[a-z]{2}:[0-9]{4}:[a-z0-9-]+$" },
+    "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "year": { "type": "integer", "minimum": 1999, "maximum": 2100 },
+    "category": { "enum": ["commemorative", "circulation", "joint"] },
+    "title": { "$ref": "#/$defs/localized" },
+    "description": { "$ref": "#/$defs/localized" },
+    "series": { "type": ["string", "null"] },
+    "mintage": { "type": ["integer", "null"], "minimum": 0 },
+    "designer": { "type": ["string", "null"] },
+    "issueDate": { "type": ["string", "null"], "format": "date" },
+    "variants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key", "label"],
+        "properties": {
+          "key": { "type": "string", "pattern": "^(default|[A-Z])$" },
+          "label": { "$ref": "#/$defs/localized" },
+          "mintage": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "images": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "obverse": { "$ref": "#/$defs/image" }
+      }
+    },
+    "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "format": "uri" } },
+    "numistaId": { "type": ["integer", "null"] },
+    "notes": { "type": ["string", "null"] }
+  },
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fr", "en", "de"],
+      "properties": {
+        "fr": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 },
+        "de": { "type": "string", "minLength": 1 },
+        "machine": { "type": "boolean", "description": "true si au moins une langue a été traduite automatiquement" }
+      }
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "license", "credit"],
+      "properties": {
+        "path": { "type": "string" },
+        "license": { "enum": ["CC0", "CC-BY", "CC-BY-SA", "written-permission"] },
+        "credit": { "type": "string", "minLength": 1 },
+        "sourceUrl": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}

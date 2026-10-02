@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.claude/state/current-task.md
+docs/session-notes/*.md
+ml/runs/
+ml/data/real-test/
+*.keystore
+*.p8
+*.p12
+*.mobileprovision
+google-services.json
+GoogleService-Info.plist
